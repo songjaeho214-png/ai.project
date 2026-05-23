@@ -10,7 +10,6 @@ export async function POST(request: Request) {
       );
     }
 
-    // 구글 제미나이 API 키 가져오기 (.env.local에 저장한 값)
     const apiKey = process.env.GEMINI_API_KEY;
     if (!apiKey) {
       return NextResponse.json(
@@ -19,7 +18,7 @@ export async function POST(request: Request) {
       );
     }
 
-    // Google Gemini 1.5 Flash 모델 주소 (속도 엄청 빠르고 완전 무료 범위 넉넉함)
+    // Google Gemini 1.5 Flash 모델 주소
     const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
 
     const systemInstruction = `너는 학교 시험 문제를 출제하는 베테랑 교사야. 사용자가 제공하는 본문 내용을 바탕으로 실제 시험 문제를 출제해줘.
